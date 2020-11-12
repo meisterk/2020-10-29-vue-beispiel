@@ -9,6 +9,29 @@
 
 <body>
     <h1>Vue-Beispiel</h1>
+    <div id="beispiel-app">
+        <input type="text" v-model="eingabetext">
+        <button @click="buttongeklickt">Drück mich!</button>
+        <p>Hallo {{ vorname }} {{ nachname }}!</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const BeispielApp = {
+            data() {
+                return {
+                    vorname: 'Franz',
+                    nachname: 'Kohnle',
+                    eingabetext: 'irgendwas'
+                };
+            },
+            methods: {
+                buttongeklickt() {
+                    this.vorname = this.eingabetext;
+                }
+            }
+        };
+        Vue.createApp(BeispielApp).mount('#beispiel-app');
+    </script>
 </body>
 
 </html>
